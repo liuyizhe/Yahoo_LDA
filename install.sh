@@ -60,6 +60,8 @@ lib_opts=''
 
 #fetch the 3rd party libraries
 rm ${lib_src}/*
+mkdir ${lib_src} 
+cd ${lib_src} 
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_ICE/raw/master/Ice-3.4.1.tar.gz -nd -P ${lib_src}
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/boostinclude.tar.gz -nd -P ${lib_src}
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/bzip2-1.0.5.tar.gz -nd -P ${lib_src}
@@ -69,7 +71,7 @@ wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/mcpp-2.7.2.tar.gz -nd -P ${lib_src}
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/protobuf-2.2.0a.tar.gz -nd -P ${lib_src}
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/tbb22_20090809oss.tar.gz -nd -P ${lib_src}
-
+cd ${prefix_dir}
 mkdir /tmp/gflags		# fix a known build bug on OS X
 buildlibrary gflags-1.2
 rm -fr /tmp/gflags		# gflags wants to have /tmp/gflags but nobody else wants it ...
